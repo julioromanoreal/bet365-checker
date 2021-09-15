@@ -32,7 +32,7 @@ Brasileirão - Série A
 Brasil - Campeonato Gaúcho
 ```
 
-After that, copy the file `.env.example` as `.env`, replacing the values needed.
+After that, copy the file `src/.env.example` as `.env`, replacing the values needed.
 
 ## Usage
 
