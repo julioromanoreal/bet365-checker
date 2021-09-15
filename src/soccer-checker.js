@@ -2,6 +2,9 @@ const axios = require("axios");
 const schedule = require("node-schedule");
 const Nightmare = require("nightmare");
 const fs = require("fs");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 check = championshipName => {
     const nightmare = Nightmare({
@@ -12,7 +15,7 @@ check = championshipName => {
     });
 
     nightmare
-        .goto("https://www.bet365.com/br/")
+        .goto(process.env.BET365_URL)
         .wait(".wn-Classification")
         .evaluate(selector => {
             var opts = document.querySelectorAll(selector);
@@ -105,7 +108,7 @@ check = championshipName => {
 sendTelegramMessage = text => {
     axios
         .get(
-            `https://api.telegram.org/bot917113195:AAEk1UDgCg2FMKGc7DAVqJC-8GswHzWueCQ/sendMessage?chat_id=@Bet365Soccer&parse_mode=html&text=${encodeURIComponent(
+            `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=@Bet365Soccer&parse_mode=html&text=${encodeURIComponent(
                 text
             )}`
         )

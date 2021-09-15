@@ -32,6 +32,8 @@ Brasileirão - Série A
 Brasil - Campeonato Gaúcho
 ```
 
+After that, copy the file `.env.example` as `.env`, replacing the values needed.
+
 ## Usage
 
 From the root folder of the project, run this command in your terminal:
